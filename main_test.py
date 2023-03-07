@@ -8,7 +8,7 @@ import math
 def test_main_1():
     captureout = io.StringIO()
     sys.stdout = captureout
-    datastr = '1 2 3\n4 5 6 7 8'
+    datastr = '1 2 3\n4 5 6 7'
     sys.stdin = io.StringIO(datastr)
 
     main.main()
@@ -25,17 +25,20 @@ def test_main_1():
     # res = re.search(regex_string, main.evenlist)
     # assert res != none
     # print(res.group())
-    assert len(main.main.merged) == 8
-    assert main.main.merged[0] == 1
-    assert main.main.merged[2] == 3
-    assert main.main.merged[6] == 7
-    assert main.main.merged[7] == 8
+    assert len(main.main.shuffle) == 7
+    assert main.main.shuffle[0] == 1
+    assert main.main.shuffle[1] == 4
+    assert main.main.shuffle[2] == 2
+    assert main.main.shuffle[3] == 5
+    assert main.main.shuffle[4] == 3
+    assert main.main.shuffle[5] == 6
+    assert main.main.shuffle[6] == 7
 
 
 def test_main_2():
     captureout = io.StringIO()
     sys.stdout = captureout
-    datastr = '10 5 25 75 85\n55 60 45'
+    datastr = '1 2 3 4 5\n6 7 8'
     sys.stdin = io.StringIO(datastr)
 
     main.main()
@@ -52,8 +55,10 @@ def test_main_2():
     # res = re.search(regex_string, main.evenlist)
     # assert res != none
     # print(res.group())
-    assert len(main.main.merged) == 8
-    assert main.main.merged[0] == 55
-    assert main.main.merged[2] == 45
-    assert main.main.merged[6] == 75
-    assert main.main.merged[7] == 85
+    assert len(main.main.shuffle) == 8
+    assert main.main.shuffle[0] == 1
+    assert main.main.shuffle[1] == 6
+    assert main.main.shuffle[2] == 2
+    assert main.main.shuffle[3] == 7
+    assert main.main.shuffle[6] == 4
+    assert main.main.shuffle[7] == 5
